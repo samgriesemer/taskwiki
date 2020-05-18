@@ -7,25 +7,13 @@ endif
 let s:conceal = exists("+conceallevel") ? ' conceal': ''
 
 syntax match TaskWikiTask /\s*\* \[.\]\s.*$/
-       \ contains=VimwikiListTodo,
-                \ VimwikiTag,
-                \ VimwikiEmoticons,
-                \ VimwikiTodo,
-                \ VimwikiBoldT,
-                \ VimwikiItalicT,
-                \ VimwikiBoldItalicT,
-                \ VimwikiItalicBoldT,
-                \ VimwikiDelTextT,
-                \ VimwikiSuperScriptT,
-                \ VimwikiSubScriptT,
-                \ VimwikiCodeT,
-                \ VimwikiEqInT,
-                \ VimwikiLink,
-                \ VimwikiNoExistsLink,
-                \ VimwikiNoExistsLinkT,
-                \ VimwikiWikiLink,
-                \ VimwikiWikiLinkT,
-                \ @Spell
+       \ contains = mkdBold,
+                  \ mkdBoldItalic,
+                  \ mkdCode,
+                  \ mkdMath,
+                  \ mkdNonListItem,
+                  \ mkdListItem,
+                  \ @Spell
 
 " Conceal the UUID
 execute 'syn match TaskWikiTaskUuid containedin=TaskWikiTask /\v#([A-Z]:)?[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/'.s:conceal
@@ -34,7 +22,7 @@ highlight link TaskWikiTaskUuid Comment
 
 " Conceal header definitions
 for s:i in range(1,6)
-  execute 'syn match TaskWikiHeaderDef containedin=VimwikiHeader'.s:i.' contained /|[^=]*/'.s:conceal
+  execute 'syn match TaskWikiHeaderDef containedin=htmlH'.s:i.' contained /|[^=]*/'.s:conceal
 endfor
 
 " Define active and deleted task regions
