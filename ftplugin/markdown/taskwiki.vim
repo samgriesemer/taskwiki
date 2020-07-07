@@ -77,6 +77,7 @@ execute "command! -range TaskWikiRedo :<line1>,<line2>"   . g:taskwiki_py . "Sel
 execute "command! -range -nargs=* TaskWikiSort :<line1>,<line2>"     . g:taskwiki_py . "SelectedTasks().sort(<q-args>)"
 execute "command! -range -nargs=* TaskWikiMod :<line1>,<line2>"      . g:taskwiki_py . "SelectedTasks().modify(<q-args>)"
 execute "command! -range -nargs=* TaskWikiAnnotate :<line1>,<line2>" . g:taskwiki_py . "SelectedTasks().annotate(<q-args>)"
+execute "command! -range -nargs=* TaskWikiOpenNote :<line1>,<line2>" . g:taskwiki_py . "SelectedTasks().open_note(<q-args>)"
 
 " Interactive commands
 execute "command! -range TaskWikiChooseProject :<line1>,<line2>"     . g:taskwiki_py . "ChooseSplitProjects('global').execute()"
@@ -121,6 +122,7 @@ if !exists('g:taskwiki_suppress_mappings')
         nnoremap <silent><buffer> <LocalLeader>i :TaskWikiInfo<CR>
         nnoremap <silent><buffer> <LocalLeader>l :TaskWikiLink<CR>
         nnoremap <silent><buffer> <LocalLeader>m :TaskWikiMod<CR>
+        nnoremap <silent><buffer> <LocalLeader>n :TaskWikiOpenNote<CR>
         nnoremap <silent><buffer> <LocalLeader>p :TaskWikiProjects<CR>
         nnoremap <silent><buffer> <LocalLeader>s :TaskWikiProjectsSummary<CR>
         nnoremap <silent><buffer> <LocalLeader>S :TaskWikiStats<CR>
@@ -140,6 +142,7 @@ if !exists('g:taskwiki_suppress_mappings')
         vnoremap <silent><buffer> <LocalLeader>i :TaskWikiInfo<CR>
         vnoremap <silent><buffer> <LocalLeader>l :TaskWikiLink<CR>
         vnoremap <silent><buffer> <LocalLeader>m :TaskWikiMod<CR>
+        vnoremap <silent><buffer> <LocalLeader>n :TaskWikiOpenNote<CR>
         vnoremap <silent><buffer> <LocalLeader>. :TaskWikiRedo<CR>
         vnoremap <silent><buffer> <LocalLeader>+ :TaskWikiStart<CR>
         vnoremap <silent><buffer> <LocalLeader>- :TaskWikiStop<CR>
