@@ -73,11 +73,11 @@ execute "command! -range TaskWikiStart :<line1>,<line2>"  . g:taskwiki_py . "Sel
 execute "command! -range TaskWikiStop :<line1>,<line2>"   . g:taskwiki_py . "SelectedTasks().stop()"
 execute "command! -range TaskWikiDone :<line1>,<line2>"   . g:taskwiki_py . "SelectedTasks().done()"
 execute "command! -range TaskWikiRedo :<line1>,<line2>"   . g:taskwiki_py . "SelectedTasks().redo()"
+execute "command! -range TaskWikiOpenNote :<line1>,<line2>" . g:taskwiki_py . "SelectedTasks().open_note()"
 
 execute "command! -range -nargs=* TaskWikiSort :<line1>,<line2>"     . g:taskwiki_py . "SelectedTasks().sort(<q-args>)"
 execute "command! -range -nargs=* TaskWikiMod :<line1>,<line2>"      . g:taskwiki_py . "SelectedTasks().modify(<q-args>)"
 execute "command! -range -nargs=* TaskWikiAnnotate :<line1>,<line2>" . g:taskwiki_py . "SelectedTasks().annotate(<q-args>)"
-execute "command! -range -nargs=* TaskWikiOpenNote :<line1>,<line2>" . g:taskwiki_py . "SelectedTasks().open_note(<q-args>)"
 
 " Interactive commands
 execute "command! -range TaskWikiChooseProject :<line1>,<line2>"     . g:taskwiki_py . "ChooseSplitProjects('global').execute()"
